@@ -1,0 +1,13 @@
+#Package: ByBb
+#Type: Package
+#Title: Analyses Data collected from the 2023 Philadelphia Phillies
+#Version: 1.0
+#Date: 2024-04-27
+#Author: Trevor Wergelis
+#Maintainer: twergelis@usf.edu
+#Description: This package contains a data set from a Major League Baseball team, the 2023 Philadelphia Phillies.
+#The data is composed of players and their batting averages, as well as an overall average for the entirety of the MLB. 
+#The purpose of this project is to compare the 2023 Philadelphia Phillies roster with the overall MLB player population.
+#Statistical methods used within this package align with methods found in the sports analytics. The package is by no means all-inclusive, 
+#and is suggestive of the types of data that is collected and how they function to inform sports statisticians.
+#License: CC0
