@@ -4,6 +4,7 @@ Title: Analyses Data collected from the 2022 Philadelphia Phillies
 Version: 0.0.0.9000
 Date: 2024-04-27
 Author: Trevor Wergelis <twergelis@usf.edu>
+Maintainer: Trevor Wergelis <twergelis@usf.edu>
 Description: This package contains a dataset from the 2022 Major League Baseball team, the Philadelphia Phillies.
  The dataset includes players' batting averages and an overall team average.
  The purpose of this package is to compare players within the 2022 Philadelphia Phillies roster.
