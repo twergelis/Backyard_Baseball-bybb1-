@@ -1,14 +1,12 @@
-#' View the CSV file containing statistics.
-#'
-#' @param bybbStats A data frame containing baseball statistics.
-#' @keywords internal
+#' Load baseball statistics data from a CSV file.
+#' This line reads a CSV file containing baseball statistics data and assigns it to the \code{bybbStats} variable.
+#' @param file Path to the CSV file containing baseball statistics data.
+#' @return A data frame containing baseball statistics.
 #' @export
-View(bybbStats)
+bybbStats <- read.csv("C:/Users/tsw08/Documents/R Final/BYBB/Data/bybb.csv")
 
 #' Get the age of a specific player.
-#'
 #' This function retrieves the age of a specific player from the provided dataset.
-#'
 #' @param bybbStats A data frame containing baseball statistics.
 #' @param player_name The name of the player whose age is to be retrieved.
 #' @return The age of the specified player.
@@ -24,9 +22,7 @@ get_age <- function(bybbStats, player_name) {
 }
 
 #' Get the position of a specific player.
-#'
 #' This function retrieves the position of a specific player from the provided dataset.
-#'
 #' @param bybbStats A data frame containing baseball statistics.
 #' @param player_name The name of the player whose position is to be retrieved.
 #' @return The position of the specified player.
@@ -42,9 +38,7 @@ get_position <- function(bybbStats, player_name) {
 }
 
 #' Get the number of home runs of a specific player.
-#'
 #' This function retrieves the number of home runs of a specific player from the provided dataset.
-#'
 #' @param bybbStats A data frame containing baseball statistics.
 #' @param player_name The name of the player whose home runs are to be retrieved.
 #' @return The number of home runs of the specified player.
@@ -68,9 +62,7 @@ get_home_runs <- function(bybbStats, player_name) {
 }
 
 #' Calculate the batting average of a specific player.
-#'
 #' This function calculates the batting average of a specific player from the provided dataset.
-#'
 #' @param data A data frame containing baseball statistics.
 #' @param player The name of the player whose batting average is to be calculated.
 #' @return The batting average of the specified player.
@@ -90,9 +82,7 @@ get_ba <- function(data, player) {
 }
 
 #' Calculate the average of a specified column.
-#'
 #' This function calculates the average of a specified column from the provided dataset.
-#'
 #' @param bybbStats A data frame containing baseball statistics.
 #' @param column_name The name of the column for which the average is to be calculated.
 #' @return The average value of the specified column.
