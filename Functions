@@ -1,0 +1,102 @@
+#' View the CSV file containing statistics.
+#'
+#' @param bybbStats A data frame containing baseball statistics.
+#' @keywords internal
+#' @export
+View(bybbStats)
+
+#' Get the age of a specific player.
+#'
+#' This function retrieves the age of a specific player from the provided dataset.
+#'
+#' @param bybbStats A data frame containing baseball statistics.
+#' @param player_name The name of the player whose age is to be retrieved.
+#' @return The age of the specified player.
+#' @export
+get_age <- function(bybbStats, player_name) {
+  player_row <- bybbStats[bybbStats$Player == player_name, ]
+  if (nrow(player_row) == 0) {
+    cat("Player not found:", player_name, "\n")
+    return(NULL)
+  }
+  age <- player_row$Age
+  return(age)
+}
+
+#' Get the position of a specific player.
+#'
+#' This function retrieves the position of a specific player from the provided dataset.
+#'
+#' @param bybbStats A data frame containing baseball statistics.
+#' @param player_name The name of the player whose position is to be retrieved.
+#' @return The position of the specified player.
+#' @export
+get_position <- function(bybbStats, player_name) {
+  player_row <- bybbStats[bybbStats$Player == player_name, ]
+  if (nrow(player_row) == 0) {
+    cat("Player not found:", player_name, "\n")
+    return(NULL)
+  }
+  position <- player_row$Position
+  return(position)
+}
+
+#' Get the number of home runs of a specific player.
+#'
+#' This function retrieves the number of home runs of a specific player from the provided dataset.
+#'
+#' @param bybbStats A data frame containing baseball statistics.
+#' @param player_name The name of the player whose home runs are to be retrieved.
+#' @return The number of home runs of the specified player.
+#' @export
+get_home_runs <- function(bybbStats, player_name) {
+  if (!("HomeRun(s)(HR)" %in% colnames(bybbStats))) {
+    cat("Column 'HomeRun(s)(HR)' not found in the dataset.\n")
+    return(NULL)
+  }
+
+  player_row <- bybbStats[bybbStats$Player == player_name, ]
+
+  if (nrow(player_row) == 0) {
+    cat("Player not found:", player_name, "\n")
+    return(NULL)
+  }
+
+  home_runs <- player_row$`HomeRun(s)(HR)`
+
+  return(home_runs)
+}
+
+#' Calculate the batting average of a specific player.
+#'
+#' This function calculates the batting average of a specific player from the provided dataset.
+#'
+#' @param data A data frame containing baseball statistics.
+#' @param player The name of the player whose batting average is to be calculated.
+#' @return The batting average of the specified player.
+#' @export
+get_ba <- function(data, player) {
+  if (!("Hits(H)" %in% colnames(data)) || !("AtBats(AB)" %in% colnames(data))) {
+    cat("Columns 'Hits(H)' or 'AtBats(AB)' not found in the dataset.\n")
+    return(NULL)
+  }
+  player_row <- data[data$Player == player, ]
+  if (nrow(player_row) == 0) {
+    cat("Player not found:", player, "\n")
+    return(NULL)
+  }
+  batting_average <- player_row$`Hits(H)` / player_row$`AtBats(AB)`
+  return(batting_average)
+}
+
+#' Calculate the average of a specified column.
+#'
+#' This function calculates the average of a specified column from the provided dataset.
+#'
+#' @param bybbStats A data frame containing baseball statistics.
+#' @param column_name The name of the column for which the average is to be calculated.
+#' @return The average value of the specified column.
+#' @export
+calculate_team_avg_age <- function(bybbStats, column_name) {
+  return(mean(bybbStats[[column_name]]))
+}
