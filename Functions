@@ -58,8 +58,8 @@ get_position <- function(bybbStats, player_name) {
 #' @return The number of home runs of the specified player.
 #' @export
 get_home_runs <- function(bybbStats, player_name) {
-  if (!("HomeRun(s)(HR)" %in% colnames(bybbStats))) {
-    cat("Column 'HomeRun(s)(HR)' not found in the dataset.\n")
+  if (!("HomeRun.s..HR." %in% colnames(bybbStats))) {
+    cat("Column 'HomeRun.s..HR.' not found in the dataset.\n")
     return(NULL)
   }
 
@@ -70,7 +70,7 @@ get_home_runs <- function(bybbStats, player_name) {
     return(NULL)
   }
 
-  home_runs <- player_row$`HomeRun(s)(HR)`
+  home_runs <- player_row$`HomeRun.s..HR.`
 
   return(home_runs)
 }
@@ -84,18 +84,22 @@ get_home_runs <- function(bybbStats, player_name) {
 #' @return The batting average of the specified player.
 #' @export
 get_ba <- function(data, player) {
-  if (!("Hits(H)" %in% colnames(data)) || !("AtBats(AB)" %in% colnames(data))) {
-    cat("Columns 'Hits(H)' or 'AtBats(AB)' not found in the dataset.\n")
+  # Check if the column names are present in the dataset
+  if (!("Hits.H." %in% colnames(data)) || !("AtBats.AB." %in% colnames(data))) {
+    cat("Columns 'Hits.H.' or 'AtBats.AB.' not found in the dataset.\n")
     return(NULL)
   }
+
   player_row <- data[data$Player == player, ]
   if (nrow(player_row) == 0) {
     cat("Player not found:", player, "\n")
     return(NULL)
   }
-  batting_average <- player_row$`Hits(H)` / player_row$`AtBats(AB)`
+
+  batting_average <- player_row$Hits.H. / player_row$AtBats.AB.
   return(batting_average)
 }
+
 
 #' Calculate the average of a specified column.
 #'
