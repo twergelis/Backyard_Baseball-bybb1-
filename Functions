@@ -112,3 +112,5 @@ get_ba <- function(data, player) {
 calculate_team_avg_age <- function(bybbStats, column_name) {
   return(mean(bybbStats[[column_name]]))
 }
+
+#' Because the "export" was used within the Roxygen2 syntax, all functions are classified as S3 methods.
