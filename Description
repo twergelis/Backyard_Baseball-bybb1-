@@ -11,6 +11,7 @@ Description: This package contains a dataset from the 2022 Major League Baseball
  Statistical methods used within this package align with methods found in sports analytics.
  The package is not all-inclusive but provides examples of the types of data collected and their use in sports statistics.
 License: CC0
+Imports: readr, dplyr, stringr, ggplot2, testthat
 Suggests: 
     testthat (>= 3.0.0)
 Config/testthat/edition: 3
