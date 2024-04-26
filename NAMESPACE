@@ -1,1 +1,6 @@
 exportPattern("^[[:alpha:]]+")
+import(readr)
+import(ggplot2)
+import(dplyr)
+import(stringr)
+import(testthat)
